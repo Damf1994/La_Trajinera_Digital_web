@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="cont-top">
+	
+	<h1>Menú</h1>
+	
+	<p></p>
+
+	<ul>
+		{% for categoria in Categoria %}
+		<li class="categoria">
+			<div class="row">
+
+				<div class="col-12 col-md-4">
+					<h2>{{ categoria.nombre }}</h2>
+				    <p>{{ categoria.descripcion }}</p><br>
+				    <p><a href="/home/carta/{{ categoria.id }}"><button type="button" class="btn btn-outline-dark">Ver Alimentos</button></a></p>
+				</div>
+
+				
+				<div class="col-12 col-md-8">
+					<a href="/home/carta/{{ categoria.id }}"><img src="{{ categoria.foto.url }}" class="img-fluid" alt="Responsive image"></a>
+				</div>
+
+			</div>
+		</li> <br><br>
+		{% endfor %}
+	</ul>
+	
+</div>
+
+{% endblock %}
+
+

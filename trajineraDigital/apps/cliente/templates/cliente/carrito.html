@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+<h1>Carrito</h1>
+
+{% if user.is_authenticated%}
+	
+	{% if vacio %}
+
+		<h1>{{ mensaje }}</h1>
+
+	{% else %}
+
+		<div class="table">
+			<table class="table">
+				<thead>
+					<th>Alimento</th>
+					<th>Precio $</th>
+				</thead>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td>Total: {{ carro.total }}
+					</tr>
+				</tfoot>
+
+				{% for producto in carro.alimentos.all %}
+
+				<tr><td>{{ producto }}</td><td>{{ producto.precio }}</td><td><a class="btn btn-outline-info" href="/home/carrito/{{ producto.id }}">Quitar</a></td></tr>
+
+				{% endfor %}
+
+			</table>
+			<h5><a href="/home/orden/"><button type="button" class="btn btn-outline-info">Ordenar</button></a></h5>
+		</div>
+
+	{% endif %}
+
+{% else %}
+	<h1>Registrate papu! 7u7</h1>
+{%endif%}
+
+
+
+</div>
+
+{% endblock %}

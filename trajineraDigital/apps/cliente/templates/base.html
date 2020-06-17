@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Esto nos ayuda con el diseño del front-end. Para mas información, ir a getbootstrap.com -->
+
+  <meta charset="utf-8">
+  
+  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+  <script src="{% static 'js/slick.min.js' %}"></script> 
+  <script src="{% static 'js/script.js' %}"></script>  
+  
+  <link rel="stylesheet"  type="text/css" href="{% static 'estilo/style.css' %}">
+  <link rel="stylesheet"  type="text/css" href="{% static 'estilo/bootstrap.min.css' %}">
+  <link rel="stylesheet"  type="text/css" href="{% static 'estilo/slick.css' %}">
+
+  <link href="{% static 'image/icono.jpeg' %}" rel='shortcut icon' type='image/png'/>
+  
+  {% block head %}
+  <title>Base</title>
+  {% endblock %}
+
+
+</head>
+<body>
+
+  {% if user.is_authenticated%}
+  <nav id="navbar-trajinera" class="navbar navbar-dark bg-info"><img style="width: 50px; height: 50px;" src="{% static 'image/logo.jpg' %}">
+    <a class="navbar-brand" href="/home/menu">La Trajinera Digital</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="/home/menu">Ver menú</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/home/ordenes">Ver ordenes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/home/carrito">Ver carrito</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/home/cuenta">Cuenta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/home/logout">Salir</a>
+      </li>
+    </ul>
+  </nav>
+  {% else %}
+  <nav id="navbar-trajinera" class="navbar navbar-dark bg-info">
+    <a class="navbar-brand" href="/home/menu">La Trajinera Digital</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="/home/registro">Registrarse</a>
+      </li>
+    </ul>
+  </nav>
+  {%endif%}
+
+  {% block body %}
+  <h1>base</h1>
+  {% endblock %}
+
+  <!-- Footer -->
+<footer class="page-footer font-small navbar-dark bg-info pt-4" id="footerq">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3" style="color: white;">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">La Trajinera Digital</h5>
+        <p > Este es un producto desarrollado por Quetzal </p>
+        <img src="{% static 'image/icono.jpeg' %}" style="width: 100px; height: 100px;">uetzal
+        
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+          <h5>Ingenieria de Software 2020-2</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://sites.google.com/ciencias.unam.mx/ingenieriadesoftware-2020-2/p%C3%A1gina-principal" target="_blank">Pagina del Curso</a>
+            </li>
+            <li>
+              <a href="https://github.com/JacquelineParedes/Quetzal--La-trajinera-digital" target="_blank">Repositorio</a>
+            </li>
+            <li>
+              <a href="http://www.fciencias.unam.mx/" target="_blank">Facultad de Ciencias</a>
+            </li>
+            
+          </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 >Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="" style="color:white;"> Quetzal</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+  
+{% block extra_js %} {% endblock %}
+</body>
+</html>
